@@ -440,12 +440,17 @@ int main(int argv, char *argc[])
 	FILE *fp7=fopen(fileName,"w");
 	//numColor=atoi(argc[7]);//
 	//controlServMutAllowed=atoi(argc[8]);
-	createPPI_Graph(fp);
+	createPPI_Graph(fp2, fp);
+	fclose(fp2);
+	fp2=fopen(argc[2],"r");
+	printf("L446\n");
 	createCoExpresionGeneHash(fp5);
+	printf("L448\n");
 	createCoExpresionMatix(fp6);
-
+	printf("L450\n");
 	assignScoreToBothControlandCases(fp2, fp3, fp4, fp7);
 	//for (int countNumColor=8; countNumColor<9; countNumColor++)
+	printf("L453\n");
 	for (int countNumColor=5; countNumColor<9; countNumColor++)
 	{
 		numColor=countNumColor;

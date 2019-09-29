@@ -77,7 +77,7 @@ return 0;
 }
 
 
-int createPPI_Graph(FILE *inputPPI_FP)
+int createPPI_Graph(FILE *fpSeed, FILE *inputPPI_FP)
 {
 char geneName1[geneNameLen], geneName2[geneNameLen];
 int nodeId1, nodeId2; 
@@ -127,6 +127,49 @@ int nodeId1, nodeId2;
 		}
 
 	}
+
+
+
+////////////////////The seedGene which is not in the PPI network is connected to a dummy node so the coexpression can be calculated////////////
+bool foundSeed=false;
+char seedGeneName[geneNameLen];
+fscanf(fpSeed, "%s\n", seedGeneName);
+for (int count=0; count<numNodes; count++)
+{
+	if (strcmp(seedGeneName,listNodes[numNodes].nodeName)==0)
+	{
+		foundSeed=true;
+	} 
+}
+if (foundSeed==false)
+{
+	printf("SeedNotFound\n");
+
+	//listNodes[numNodes].nodeId=numNodes;
+	//strcpy(listNodes[numNodes].nodeName, "DUMMYGENE\n");
+	//listNodes[numNodes].degree=0;
+	//listNodes[numNodes].weightCases=0;
+	//listNodes[numNodes].weightControl=0;
+	//numNodes++;
+	listNodes[numNodes].nodeId=numNodes;
+	strcpy(listNodes[numNodes].nodeName, seedGeneName);	
+	listNodes[numNodes].degree=0;
+	listNodes[numNodes].weightCases=0;
+	listNodes[numNodes].weightControl=0;
+	listNodes[numNodes].neighbours=NULL;
+	numNodes++;
+	//nodeId1=numNodes-2;
+	//nodeId2=numNodes-1;
+		
+	/*listNodes[nodeId1].degree++;
+	listNodes[nodeId2].degree++;
+	listNodes[nodeId1].neighbours=(int *)realloc(listNodes[nodeId1].neighbours, listNodes[nodeId1].degree*sizeof(int));
+	listNodes[nodeId2].neighbours=(int *)realloc(listNodes[nodeId2].neighbours, listNodes[nodeId2].degree*sizeof(int));
+	listNodes[nodeId1].neighbours[listNodes[nodeId1].degree-1]=nodeId2;
+	listNodes[nodeId2].neighbours[listNodes[nodeId2].degree-1]=nodeId1;
+	*/
+}
+//////////////////The seedGene additions to the dummpy Node///////////////////
 
 for (int count=0; count<numNodes; count++)
 {

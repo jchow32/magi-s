@@ -45,7 +45,7 @@ extern coExpresionGeneHash coExpresionGeneHashTable[maxNumNode];
 extern PPI_Node listNodes[maxNumNode];
 extern float coExpresionMatrix[maxNumNode][maxNumNode];
 
-int createPPI_Graph(FILE *); 
+int createPPI_Graph(FILE*, FILE *); 
 //int assignScoreCases(FILE *);
 //int assignScoreControls(FILE *);
 int createCoExpresionMatix(FILE *);
