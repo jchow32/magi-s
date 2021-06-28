@@ -53,7 +53,7 @@ Output:
 		Pairwise gene coexpression values. File input format:<Gene_Name_1><\t><Gene_Name_2><\t><CoExpression - r^6> (example: adj1.csv.Tab.BinaryFormat)
 		Note that the genes pairs are sorted based on their <Gene_row_id> provided in the file inputed as -h parameters.
 	-s <Seed File> 
-		The file names of different seeds. <Seed Name File><\t><Number of seeds><\t><Length of Seeds> (example: Paths. The Paths file was created from the BestPaths.Length%i.Control%i.Run%i produced in the previous step)
+		The file names of different seeds. <Seed Name File><\t><Number of seeds><\t><Length of Seeds> (example: Paths. The Paths file references files (BestPaths.Length%i.Control%i.Run%i) created from running Pathway_GeneCenter in the previous step)
 	-m <upper bound on control mutations>
 		The total number of mutations in control's allowed. 
 	-l <lower bound on the size of the module>
