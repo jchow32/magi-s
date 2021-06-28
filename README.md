@@ -76,3 +76,7 @@ Output:
 
 Example: 
 Gene_Centric/Clusters/Cluster2 -p $PPI -c ../RandomGeneList.1 -h $geneCoexpressionID -e $coexpressionMatrix -s Paths -m 6 -l 20 -u 100 -a 0.5 -i 1 -minCoExpr 0.01 -avgCoExpr 0.440000 -avgDensity 0.14 > CCluster_Len_20_MinCoExpr0.01_LessCoexpr_New_0.440000
+
+# Tips
+In practice, Cluster2 can be run multiple times on the same BestPaths* generated from a single run of Pathway_GeneCenter, and the highest scoring module can be retrieved from all runs of Cluster2. 
+36 example input parameters (a single combination of parameters per line) for Cluster2 are displayed in the file magi-s/Inputs, in which the parameters -l, -i, -avgCoExpr, and -avgDensity are varied. 36 example output names are also provided in the file magi-s/Outputs2, which correspond to the suggested input parameters listed in magi-s/Inputs. Note that the first line of magi-s/Inputs and magi-s/Outputs2 are substituted into the Example Cluster2 command shown above. 
